@@ -201,9 +201,8 @@
     flex-wrap: wrap;
     height: 100px;
     margin-top: 30px;
-    color: #0000ee;
-    background-color: #c97b59;
-    opacity: 0.5;
+    color: navy;
+    background-color: #dba690;
   }
   
   #logo-footer
@@ -222,8 +221,8 @@
  .social
  {
    width: 50px;
-   font-size: 30px;
-   color: #0000ee;
+   font-size: 37px;
+   color: navy;
    margin-left: 15px;
  }
 
@@ -232,6 +231,7 @@
    width: 150px;
    text-decoration: none;
    font-size: 23px;
+   color: navy;
  }
 
 
