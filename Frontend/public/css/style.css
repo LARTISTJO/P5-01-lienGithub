@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: inherit;
     width: 100%;
+    text-decoration: none;
   }
 
   /*css index*/
@@ -18,7 +19,7 @@
   {
     max-width: 1440px;
     margin: auto;
-    background-color: mistyrose;
+    background-color: #d1dad3;
   }
   
   header 
@@ -49,7 +50,7 @@
   h1 
   {
     display: flex;
-    margin-left: 5px;
+    margin-left: 4%;
     align-items: center;
     font-size: 19px;
     font-weight: 700;
@@ -177,8 +178,13 @@
 
   h3
   {
-    font-size: 20px;
+    font-size: 26px;
     margin-bottom: 10px;
+  }
+
+  #recapitulatif p
+  {
+    font-size: 20px;
   }
 
   p
@@ -200,10 +206,6 @@
     width: 65%;
   }
 
-  .boutons a
-  {
-    text-decoration: none;
-  }
 
   /* code css footer*/
 
@@ -212,7 +214,6 @@
     display: flex;
     flex-wrap: wrap;
     height: 100px;
-    margin-top: 10px;
     background-color: #eba797;
   }
   
@@ -237,14 +238,13 @@
 
  footer  a
  {
-   text-decoration: none;
    color: royalblue;
    padding-right: 7px;
  }
 
  footer p
  {
-   font-size: 13px;
+   font-size: 14px;
  }
 
  .element:nth-child(1)
@@ -282,7 +282,13 @@
  {
    display: flex;
    justify-content: center;
-   margin-left: 5%;
+   flex-wrap: wrap;
+   margin: 5%;
+ }
+
+ .nombre
+ {
+   margin-bottom: 10px;
  }
 
  ul
@@ -301,9 +307,10 @@
    margin-right: 35px;
  }
 
- .choix p, a
+ .choix, a
  {
    font-size: 24px;
+   color: midnightblue;
  }
 
  /*code css page panier*/
@@ -324,6 +331,7 @@
  {
    width: 90%;
    margin-left: 5%;
+   margin-bottom: 5%;
    border-collapse: collapse;
    text-align: center;
    table-layout: fixed;
@@ -331,32 +339,33 @@
 
  thead th:nth-child(1) 
  {
-  width: 45%;
+  width: 30%;
 }
 
 thead th:nth-child(2) 
 {
-  width: 15%;
+  width: 20%;
 }
 
 thead th:nth-child(3) 
 {
-  width: 15%;
+  width: 17%;
 }
 
 thead th:nth-child(4) 
 {
-  width: 15%;
+  width: 16%;
 }
 
 thead th:nth-child(5) 
 {
-  width: 10%;
+  width: 17%;
 }
 
  .photo-ref
  {
    display: flex;
+   flex-wrap: wrap;
    text-align: center;
  }
 
@@ -366,7 +375,7 @@ thead th:nth-child(5)
  }
  table,td 
  {
-   font-size: 25px;
+   font-size: 13px;
    border: 3px solid steelblue;
  }
 
@@ -374,6 +383,7 @@ thead th:nth-child(5)
  {
    margin-right: 5px;
    padding: 10px;
+   font-size: 14px;
  }
 
  #validation
@@ -392,7 +402,7 @@ thead th:nth-child(5)
 
  #confirmation
  {
-   text-align: justify;
+   text-align: center;
    width: 90%;
    margin-left: 5%;
  }
@@ -413,6 +423,7 @@ thead th:nth-child(5)
  #recapitulatif
  {
    text-align: center;
+   margin-bottom: 4%;
  }
 
  #remerciements p
@@ -423,15 +434,25 @@ thead th:nth-child(5)
 
  @media only screen and (min-width: 500px)
   {
+
+    h1
+    {
+      font-size: 29px;
+    }
+
+    h2
+    {
+      font-size: 23px;
+    }
+
+    #intro p
+    {
+      font-size: 23px;
+    }
+    
     figure
     {
       width: 290px;
-    }
-  
-    figcaption
-    {
-      flex-wrap: wrap;
-      padding: 0px;
     }
   
     .prix
@@ -448,5 +469,54 @@ thead th:nth-child(5)
     {
       padding: 10px 0px 10px 15px;
     }
+
+    #produit
+    {
+      width: 90%;
+    }
+
+    .centre a
+    {
+      display: flex;
+      justify-content: center;
+    }
+
+    table
+    {
+      font-size: 16px;
+    }
+
+    td
+    {
+      font-size: 22px;
+    }
+
+    #recapitulatif
+    {
+      margin-bottom: 2%;
+    }
   }
   
+  @media only screen and (min-width: 768px)
+  {
+    #logo-texte
+    {
+      width: 70%;
+    }
+
+    #info
+    {
+      width: 30%;
+      margin-left: 0%;
+    }
+
+    footer p
+    {
+      font-size: 20px;
+    }
+
+    .choix a
+    {
+      font-size: 28px;
+    }
+  }

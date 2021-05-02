@@ -3,6 +3,7 @@
   <head>
 			<meta charset="utf-8" />
 			<title>Orinoco</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 			<link rel="stylesheet" href="../css/style.css">
 			<script src="https://kit.fontawesome.com/ca09bd6d26.js" crossorigin="anonymous"></script>
 			<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -40,42 +41,46 @@
                         <p> Magnifique appareil photo, le N°1 fera votre bonheur</p>
                     </div>
                         <p class="prix"> 83 €</p>
-                    <div class="boutons">
-                        <a href="Frontend/public/pages/panier.html"> <button>commander</button></a>
-                        <a href="Frontend/public/pages/produit.html"><button>En savoir +</button></a>
+                    <div class="boutons centre">
+                        <a href="../pages/panier.html"> <button>commander</button></a>
                     </div>
                 </figcaption>
         </figure>
 
-        <div class="choix">           
+        <div class="choix">  
+            <div class="nombre">         
               <a><p>Quantité:</p></a>
                 <ul>
-                  <li><a>1</a></li>
-                  <li><a>2</a></li>
-                  <li><a>3</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
                 </ul>
               </li>
+            </div>  
+            <div class="type"> 
               <a><p>Lentilles:</p></a>
                 <ul>
-                  <li><a>Filtre 1</a></li>
-                  <li><a>Filtre 2</a></li>
-                  <li><a>Filtre 3</a></li>
+                  <li><a href="#">Filtre 1</a></li>
+                  <li><a href="#">Filtre 2</a></li>
+                  <li><a href="#">Filtre 3</a></li>
                 </ul>
-              </li>   
+              </li>  
+            </div>   
         </div>
 
         <footer>
             <div id="logo-footer">
                 <img src="../images/logo/orinoco-small.png" alt='logo orinoco'>
 			</div>
-            <div class="liste">
-                <a class="social" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
-				<a class="social" aria-label="lien pour rejoindre instagram" href="https://instagram.com/profile"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
-                <p>Mentions légales</p> 
-                <p>Suivi de commande</p>            
+            <div id="liste">
+                <a class="element" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
+				<a class="element" aria-label="lien pour rejoindre instagram" href="https://instagram.com/profile"><i class="fab fa-instagram"></i></a>
+                <a class="element"href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
+                <p class="element">Mentions légales</p> 
+                <p class="element">Suivi commande</p>            
             </div>
         </footer>
 	   </div>
     </body>
 </html>
+  
