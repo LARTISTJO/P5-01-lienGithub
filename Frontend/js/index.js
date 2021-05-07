@@ -47,5 +47,9 @@ let p = document.createElement('p');
 description.appendChild (p)
 description.appendChild(h3);
 
+//Mise en place des button au sein de la class boutons
+let liensBouton = document.createElement('a');
+boutons.appendChild(a);
+
 
 
