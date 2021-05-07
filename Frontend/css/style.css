@@ -43,7 +43,7 @@
 
   #logo img
   {
-    border-radius: 0px 0px 30px 0px;
+    border-radius: 0px 0px 20px 0px;
 
   }
 
@@ -166,7 +166,7 @@
     margin-top: -5px;
     padding-bottom: 10px;
     justify-content: flex-end;
-    background-color: #c67962;
+    background-color: #eba797;
     border-radius: 0px 0px 20px 20px;
     color: white;
   }
@@ -221,6 +221,11 @@
   {
     width: 139px;
     height: 35px;
+  }
+
+  #logo-footer img
+  {
+    border-radius: 0px 0px 10px 0px;
   }
 
   #liste 
@@ -300,6 +305,11 @@
  ul li
  {
    width: 25%;
+ }
+
+ select
+ {
+   width: fit-content;
  }
 
  .choix p
@@ -432,6 +442,7 @@ thead th:nth-child(5)
    font-size: 24px;
  }
 
+
  @media only screen and (min-width: 500px)
   {
 
@@ -519,4 +530,5 @@ thead th:nth-child(5)
     {
       font-size: 28px;
     }
+
   }
