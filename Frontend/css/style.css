@@ -283,44 +283,59 @@
    margin-left: 5%;
  }
  
- .choix
+ #choix
  {
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
-   margin: 5%;
+   margin-left: 5%;
  }
 
- .nombre
+ #nombre
  {
+   display: flex;
+   width: 55%;
    margin-bottom: 10px;
  }
 
- ul
+ .plusmoins
  {
    display: flex;
-   list-style: none;
+   text-align: center;
+   background-color: white;
  }
 
- ul li
+ .plusmoins p
  {
-   width: 25%;
+   border-top: #eba797 solid 3px;
+   border-bottom: #eba797 solid 3px;
  }
-
- select
- {
-   width: fit-content;
- }
-
- .choix p
- {
-   margin-right: 35px;
- }
-
- .choix, a
+ 
+ #choix, a
  {
    font-size: 24px;
    color: midnightblue;
+ }
+
+ #plus, #moins
+ {
+   font-size: 16px;
+   border: #eba797 solid 3px;
+ }
+
+ #type
+ {
+   color: midnightblue;
+   margin-left: 5%;
+ }
+
+ #valeur
+ {
+   display: flex;
+   width: 55%;
+   margin-bottom: 20px;
+ }
+ 
+ select
+ {
+   border: #eba797 solid 3px;
  }
 
  /*code css page panier*/
@@ -395,6 +410,21 @@ thead th:nth-child(5)
    padding: 10px;
    font-size: 14px;
  }
+
+ .pan
+ {
+  flex-direction: column;
+  margin: auto;
+  width: 24px;
+ }
+
+ .pan p
+{
+  border-bottom: 0px;
+  border-top: 0px;
+  border-left: #eba797 solid 3px;
+  border-right: #eba797 solid 3px;
+}
 
  #validation
  {
@@ -506,10 +536,22 @@ thead th:nth-child(5)
     {
       margin-bottom: 2%;
     }
+    #nombre, #valeur
+    {
+      width: 40%;
+    }
+    
+    
   }
   
   @media only screen and (min-width: 768px)
   {
+
+    #nombre, #valeur
+    {
+      width: 30%;
+    }
+
     #logo-texte
     {
       width: 70%;
@@ -526,9 +568,18 @@ thead th:nth-child(5)
       font-size: 20px;
     }
 
-    .choix a
+    #choix a
     {
       font-size: 28px;
     }
 
+  }
+
+  @media only screen and (min-width: 1024px)
+
+  {
+    #nombre, #valeur
+    {
+      width: 20%;
+    }
   }
