@@ -140,7 +140,7 @@
     margin-bottom: 15px;
   }
   
-  #liste-appareils-photo
+  #appareils
   {
     display: flex;
     flex-wrap: wrap;
@@ -200,10 +200,10 @@
     font-size: 30px;
   }
 
-  .boutons
+  figcaption a
   {
     display: flex;
-    width: 65%;
+    justify-content: center;
   }
 
 
@@ -295,11 +295,13 @@
    margin-bottom: 10px;
  }
 
- .plusmoins
+ .selection
  {
    display: flex;
    text-align: center;
    background-color: white;
+   border:#eba797 solid 3px;
+   border-collapse: collapse;
  }
 
  .plusmoins p
@@ -314,10 +316,21 @@
    color: midnightblue;
  }
 
- #plus, #moins
+ .plus, .moins
  {
-   font-size: 16px;
-   border: #eba797 solid 3px;
+   font-size: 20px;
+   font-weight: bolder;
+   color: black;
+ }
+
+ .plus
+ {
+  border-right: #eba797 solid 3px;
+ }
+
+ .moins
+ {
+  border-left: #eba797 solid 3px;
  }
 
  #type

@@ -1,5 +1,5 @@
 
-//........ API requète
+//........ Récupération produits Api
 function appareilPhoto () {
 	fetch("http://localhost:3000/api/cameras")
 	.then( function (res) {
@@ -7,17 +7,17 @@ function appareilPhoto () {
 	})
 	//........Structure html
 	.then ((data) => {
-		const structure = document.getElementById(liste-appareils-photo) ;
+		const structure = document.getElementById("appareils");
 		for (let i = 0; i < data.length; i++){ 
 
 	//........Figure
 	const figure = document.createElement ("figure");
-	listeAppareilsPhoto.appendChild(figure);
+	appareils.appendChild(figure);
 		
 		//Création de l'img au sein de l'élément figure
 		let img = document.createElement("img");
 		img.src= data [i].imageUrl;
-		img.alt = "appareil photo vintage";
+		img.alt = "Appareil photo vintage";
 		figure.appendChild(img);
 
 		//Création du figcaption au sein de l'élément figure
@@ -41,17 +41,15 @@ function appareilPhoto () {
 
 			//Mise en place du prix au sein du figcaption
 				prix.setAttribute("class", "prix");
-				prix.innerHTML = data [i].price;
+				prix.innerHTML = data [i].price/1000 + "€";
 				figcaption.appendChild(prix);
 
 			//Mise en place des boutons et liens au sein du figcaption
-				let boutons = document.createElement('div');
-				let liensBouton = document.createElement('a');
-				let bouton = document.createElement ("button")
-				boutons.setAttribute("class", "boutons");
-				figcaption.appendChild(boutons);
-				boutons.appendChild(liensBouton);
-				bouton.appendChild("button")
+				let liensBouton = document.createElement("a");
+				let bouton = document.createElement ("button");
+				bouton.textContent = "En savoir +";
+				figcaption.appendChild(liensBouton);
+				liensBouton.appendChild(bouton);
 				}
 			});
 }
