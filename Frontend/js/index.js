@@ -1,10 +1,9 @@
-
 //........ Récupération produits Api
 function appareilPhoto () {
 	fetch("http://localhost:3000/api/cameras")
-	.then( function (res) {
-		return res.json();
-	})
+	.then( (res) => res.json())
+
+
 	//........Structure html
 	.then ((data) => {
 		const structure = document.getElementById("appareils");
