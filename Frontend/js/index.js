@@ -46,6 +46,7 @@ function appareilPhoto () {
 			//Mise en place des boutons et liens au sein du figcaption
 				let liensBouton = document.createElement("a");
 				let bouton = document.createElement ("button");
+				liensBouton.setAttribute('href','../pages/produit.html')
 				bouton.textContent = "En savoir +";
 				figcaption.appendChild(liensBouton);
 				liensBouton.appendChild(bouton);

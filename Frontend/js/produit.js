@@ -50,6 +50,7 @@ function appareilPhoto () {
 				let liensBouton = document.createElement("a");
 				let bouton = document.createElement ("button");
 				bouton.textContent = "Commander";
+				liensBouton.setAttribute('href','../pages/panier.html')
 				figcaption.appendChild(liensBouton);
 				liensBouton.appendChild(bouton);
 
@@ -96,10 +97,13 @@ function appareilPhoto () {
             lentilles.textContent = "Lentilles :"
             valeur.appendChild(lentilles);
 
-    
+			const select= document.createElement ("select")
+			valeur.appendChild(select)
 
-
-            
+			const value = document.createElement ("option")
+			value.innerHTML = data [i].lenses;
+			select.appendChild(value);
+ 
 				}
 			});
 }
