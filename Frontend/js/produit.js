@@ -2,12 +2,11 @@ function appareilPhoto () {
 	fetch("http://localhost:3000/api/cameras")
 	.then( (res) => res.json())
 
-
 	//........Structure html
 	.then ((data) => {
 		const structure = document.getElementById("main");
-		for (let i = 2; i < data.length; i++){ 
-        if (i > 2) break;{
+		for (let i = 1; i < data.length; i++){ 
+        if (i > 1) break;{
             
         }
 
@@ -55,6 +54,9 @@ function appareilPhoto () {
 				liensBouton.appendChild(bouton);
 
     //....... Quantité
+
+	
+
     const choix = document.createElement ("div");
     choix.setAttribute("id", "choix")
 	main.appendChild(choix);
@@ -67,23 +69,30 @@ function appareilPhoto () {
             quantite.textContent = "Quantité :"
             nombre.appendChild(quantite);
 
-            const selection = document.createElement ("div");
-            selection.setAttribute("class", "selection")
+            const selection = document.createElement ("form");
             nombre.appendChild(selection);
 
-                const plus = document.createElement ("div");
-                plus.setAttribute("class", "plus")
-                plus.textContent = "+"
-                selection.appendChild(plus);
-
-                const chiffre = document.createElement ("p");
-                chiffre.textContent = "1"
-                selection.appendChild(chiffre);
-
-                const moins = document.createElement ("div");
-                moins.setAttribute("class", "moins")
-                moins.textContent = "+"
+				const moins = document.createElement ("div");
+                moins.setAttribute('class', 'value-button')
+				moins.setAttribute('id','decrease')
+				moins.addEventListener('onclick', decreaseValue)
+				moins.setAttribute('value','Decrease value')
+                moins.textContent = '-'
                 selection.appendChild(moins);
+
+                let number= document.createElement ('input');
+				number.setAttribute('type', 'number')
+				number.setAttribute('id', 'number')
+                number.setAttribute ('value', '0')
+                selection.appendChild(number);
+
+				const plus = document.createElement ('div');
+                plus.setAttribute('class', 'value-button')
+				plus.setAttribute('id', 'increase')
+				plus.addEventListener('onclick',increaseValue)
+				plus.setAttribute('value','Increase Value')
+				plus.textContent = '+'
+                selection.appendChild(plus); 
 
     const type = document.createElement ("div");
     type.setAttribute("id", "type")
@@ -100,12 +109,41 @@ function appareilPhoto () {
 			const select= document.createElement ("select")
 			valeur.appendChild(select)
 
-			const value = document.createElement ("option")
-			value.innerHTML = data [i].lenses;
-			select.appendChild(value);
+			const value1 = document.createElement ("option")
+			value1.innerHTML = data [i].lenses[0];
+			select.appendChild(value1);
+
+			const value2 = document.createElement ("option")
+			value2.innerHTML = data [i].lenses[1];
+			select.appendChild(value2);
+
+			const value3 = document.createElement ("option")
+			value3.innerHTML = data [i].lenses[2];
+			select.appendChild(value3);
  
 				}
 			});
 }
 
+
+
 appareilPhoto ();
+
+
+function increaseValue() {
+	var value = parseInt( document.getElementById('number').value, 10);
+	value = isNaN(value) ? 0 : value;
+	value++;
+	document.getElementById('number').value = value;
+  }
+  
+  function decreaseValue() {
+	var value = parseInt(document.getElementById('number').value, 10);
+	value = isNaN(value) ? 0 : value;
+	value < 1 ? value = 1 : '';
+	value--;
+	document.getElementById('number').value = value;}
+
+
+increaseValue ();
+decreaseValue ();
