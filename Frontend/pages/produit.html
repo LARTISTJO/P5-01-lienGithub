@@ -34,51 +34,40 @@
                 </section>
 		    </header>
             
-            <div id="main">
-              <!--
+            <main id="main">
                 <figure id="produit">
-                    <img src="../images/vcam_3.jpg" alt="appareil photo vintage">
-                    <figcaption>
+                    <img class="image">
+                    <figcaption id ="capture">
                         <div class="description">
                             <h3>N°1 Pocket Kodak</h3>
                             <p> Magnifique appareil photo, le N°1 fera votre bonheur</p>
                         </div>
-                        <p class="prix"> 83 €</p>
-                        <div class="boutons centre">
-                            <a href="../pages/panier.html"> <button>commander</button></a>
-                        </div>
+                        <p class="prix">€</p>
                     </figcaption>
                 </figure>
               
-            
                 <div id="choix">  
                     <div id="nombre">         
                         <p>Quantité:</p>
-                        <div class="selection">
-                            <div class="plus">+</div>
-                                <p>1</p>
-                            <div class="moins">-</div>
-                        </div> 
+                        <form id "selection">
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                            <input type="number" id="number" value="0" />
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                          </form>
                     </div> 
                 </div>  
-                  
+              
                 <div id="type"> 
                     <div id="valeur">
-                        <p>Lentilles:</p>
-                        <select>
-                            <option value="1">25mm</option>
-                            <option value="2">40mm</option>
-                            <option value="3">60mm</option>
-                        </select>
+                        <label for ="options">Lentilles:</label>
+                        <select id ="options"></select>
                     </div>
                 </div> 
-             --> 
-             <form>
-                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                <input type="number" id="number" value="0" />
-                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-              </form>
-            </div>
+
+                <div class="boutons centre">
+                    <a href="../pages/panier.html"> <button id="commande" >Commander</button></a>
+                </div>
+            </main>
             
 
             
