@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
 			<meta charset="utf-8" />
@@ -7,7 +7,8 @@
 			<link rel="stylesheet" href="../css/style.css">
 			<script src="https://kit.fontawesome.com/ca09bd6d26.js" crossorigin="anonymous"></script>
 			<link rel="preconnect" href="https://fonts.gstatic.com">
-			<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">		
+			<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">	
+            <script src="../js/panier.js" defer></script>	
   </head>
 
   <body>
@@ -20,8 +21,8 @@
                     <h1>Bienvenue sur Orinoco</h1>
                 </div>
                 <div id="info">
-                    <button id="connexion">Connexion</button>
-                    <div id="panier">
+                    <a href="index.html"><button id="index">Accueil</button></a>
+                    <div id="basket">
                         <a href="panier.html"><i class="fas fa-shopping-basket"></i></a>
                     </div>
                 </div>
@@ -34,100 +35,19 @@
 		</header>
 
         <main>
-               <h3 id="validation">Validation de votre panier</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Produit</th>
-                                <th>Quantité</th>
-                                <th>Prix unité</th>
-                                <th>Total</th>
-                                <th>Retirer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td >
-                                    <div class="photo-ref">
-                                        <div class="panier-img">
-                                            <a href="produit.html">
-                                                <img src="../images/app-photo-1.jpg" alt="appareil photo vintage">
-                                            </a>
-                                        </div>
-                                        <div class="nom-panier">
-                                            <p>Zeiss Ikon Prontor</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                    <td>    
-                                        <div class="plusmoins pan">
-                                            <div id="plus"><i class="fas fa-plus"></i></div>
-                                            <p>1</p>
-                                            <div id ="moins"><i class="fas fa-minus"></i></div> 
-                                        </div> 
-                                    </td>
-                                    <td>53€</td>
-                                    <td>53€</td>
-                                    <td><i class="fas fa-times-circle"></i></td>
-                                </tr>
-                                <tr>
-                                    <td >
-                                        <div class="photo-ref">
-                                            <div class="panier-img">
-                                                <a href="produit.html">
-                                                    <img src="../images/app-photo-5.jpg" alt="appareil photo vintage">
-                                                </a>
-                                            </div>
-                                            <div class="nom-panier">
-                                                <p>Samsung</p> 
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="plusmoins pan">
-                                            <div id="plus"><i class="fas fa-plus"></i></div>
-                                            <p>1</p>
-                                            <div id ="moins"><i class="fas fa-minus"></i></div> 
-                                        </div> 
-                                    </td>
-                                    <td>92€</td>
-                                    <td>92€</td>
-                                    <td><i class="fas fa-times-circle"></i></td>
-                                </tr>
-                                <tr>
-                                    <td >
-                                        <div class="photo-ref">
-                                            <div class="panier-img">
-                                                <a href="produit.html">
-                                                    <img src="../images/app-photo-3.jpg" alt="appareil photo vintage">
-                                                </a>
-                                            </div>
-                                            <div class="nom-panier">
-                                                <p>N°1 Pocket Kodak</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="plusmoins pan">
-                                            <div id="plus"><i class="fas fa-plus"></i></div>
-                                            <p>1</p>
-                                            <div id ="moins"><i class="fas fa-minus"></i></div> 
-                                        </div> 
-                                    </td>
-                                    <td>123€</td>
-                                    <td>123€</td>
-                                    <td><i class="fas fa-times-circle"></i></td>
-                                </tr>
-                                
-                            <tr>
-                                <td colspan="3" ><p id="total">Total des produits (TTC)</p</td>
-                                <td colspan="1">268€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
-                
+            <h3 id="validation">Validation de votre panier</h3>
         </main>
+
+        <div id="forme">
+            <form id="form" name="myForm" accept-charset="utf-8">
+                <input class="panier" type="text" id="prenom"  placeholder="Prénom" required>
+                <input class="panier" type="text" id="nom"  placeholder="Nom" required>
+                <input class="panier" type="text" id="ville"  placeholder="Ville" required>
+                <input class="panier" type="text" id="adresse"  placeholder="Code Postal" pattern="[0-9]{5}" title="5 chiffres sont requis" required>
+                <input class="panier" type="email" id="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
+            </form>
+        </div>
 
         <footer>
             <div id="logo-footer">
@@ -145,4 +65,3 @@
     </body>
 </html> 
   
--->

@@ -87,12 +87,12 @@
     opacity: 0.85;
   }
   
-  #panier 
+  #basket
   {
     width: 25%;
   }
 
-  #panier i
+  #basket i
   {
     color: #905bfc;
   }
@@ -352,105 +352,100 @@
    border: #eba797 solid 3px;
  }
 
+ #quantite
+ {
+   display: flex;
+  width: 150px;
+  border: #eba797 3px solid;
+  border-radius: 10px;
+}
+
+.value-button 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+#quantite #decrease 
+{
+  margin-right: -2px;
+  border-radius: 8px 0 0 8px;
+}
+
+#quantite #increase 
+{
+  margin-left: -2px;
+  border-radius: 0 8px 8px 0;
+}
+
+#quantite #input-wrap 
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+input#number 
+{
+  text-align: center;
+  border: none;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
  /*code css page panier*/
 
- .panier-img
- {
-   width: 250px;
- }
 
- .nom-panier
+ #forme
  {
    display: flex;
-   align-items: center;
-   width: 250px;
+   justify-content: center;
  }
 
- table
+ #form 
  {
-   width: 90%;
-   margin-left: 5%;
-   margin-bottom: 5%;
-   border-collapse: collapse;
-   text-align: center;
-   table-layout: fixed;
- }
-
- thead th:nth-child(1) 
- {
-  width: 30%;
-}
-
-thead th:nth-child(2) 
-{
-  width: 20%;
-}
-
-thead th:nth-child(3) 
-{
-  width: 17%;
-}
-
-thead th:nth-child(4) 
-{
-  width: 16%;
-}
-
-thead th:nth-child(5) 
-{
-  width: 17%;
-}
-
- .photo-ref
- {
-   display: flex;
-   flex-wrap: wrap;
-   text-align: center;
- }
-
- tr
- {
-   width: fit-content;
- }
- table,td 
- {
-   font-size: 13px;
-   border: 3px solid steelblue;
- }
-
- td 
- {
-   margin-right: 5px;
-   padding: 10px;
-   font-size: 14px;
- }
-
- .pan
- {
+  display: flex;
   flex-direction: column;
-  margin: auto;
-  width: 24px;
- }
-
- .pan p
-{
-  border-bottom: 0px;
-  border-top: 0px;
-  border-left: #eba797 solid 3px;
-  border-right: #eba797 solid 3px;
+  width: 70%;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  border-radius: 0px;
 }
 
- #validation
- {
-   margin-left: 5%;
-   margin-bottom: 20px;
- }
+.panier
+{
+  margin-bottom:5px;
+  height: 40px;
+  border: none;
+  padding-left: 10px;
+}
 
- #total
- {
-   display: flex;
-   justify-content: flex-end;
- }
+#envoi
+{
+  margin-bottom: 0px;
+}
 
  /*code css page confirmation*/
 
@@ -486,67 +481,8 @@ thead th:nth-child(5)
    font-size: 24px;
  }
 
- form 
- {
-   display: flex;
-  width: 150px;
-  border: #eba797 3px solid;
-  border-radius: 10px;
-}
 
-.value-button 
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-.value-button:hover {
-  cursor: pointer;
-}
-
-form #decrease 
-{
-  margin-right: -2px;
-  border-radius: 8px 0 0 8px;
-}
-
-form #increase 
-{
-  margin-left: -2px;
-  border-radius: 0 8px 8px 0;
-}
-
-form #input-wrap 
-{
-  margin: 0px;
-  padding: 0px;
-}
-
-input#number 
-{
-  text-align: center;
-  border: none;
-  margin: 0px;
-  width: 40px;
-  height: 40px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
 
 
  @media only screen and (min-width: 500px)

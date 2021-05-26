@@ -21,8 +21,8 @@
                     <h1>Bienvenue sur Orinoco</h1>
                 </div>
                 <div id="info">
-                    <button id="connexion">Connexion</button>
-                    <div id="panier">
+                   <a href="index.html"><button id="index">Accueil</button></a> 
+                    <div id="basket">
                         <a href="panier.html"><i class="fas fa-shopping-basket"></i></a>
                     </div>
                 </div>
@@ -40,33 +40,33 @@
                     <figcaption id ="capture">
                         <div class="description">
                             <h3>N°1 Pocket Kodak</h3>
-                            <p> Magnifique appareil photo, le N°1 fera votre bonheur</p>
+                            <p> Magnifique appareil photo il fera votre bonheur</p>
                         </div>
-                        <p class="prix">€</p>
+                        <p class="prix"></p>
                     </figcaption>
                 </figure>
-              
-                <div id="choix">  
-                    <div id="nombre">         
-                        <p>Quantité:</p>
-                        <form id "selection">
-                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            <input type="number" id="number" value="0" />
-                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                          </form>
-                    </div> 
-                </div>  
-              
+            <form id="selection" action="panier.html" method="POST"></form>
                 <div id="type"> 
                     <div id="valeur">
                         <label for ="options">Lentilles:</label>
                         <select id ="options"></select>
                     </div>
                 </div> 
-
+                <div id="choix">  
+                    <div id="nombre">         
+                        <p>Quantité:</p>
+                        <div id="quantite">
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                            <input name="number" type="number" id="number"  placeholder="0" >
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                        </div>
+                    </div> 
+                </div>  
                 <div class="boutons centre">
-                    <a href="../pages/panier.html"> <button id="commande" >Commander</button></a>
+                    <a href="../pages/panier.html"><button id="commandes" type="submit"  onclick="total()">Commandez</button></a>
                 </div>
+            </form>
+            <p>Total :<span class="coutTotal">0</span> €</p>
             </main>
             
 

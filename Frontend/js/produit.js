@@ -1,44 +1,39 @@
-// Déclaration des variables
-const parsedUrl = new URL(window.location.href);
-const id = parsedUrl.searchParams.get("id");
+// Variables qui seront utiles pour la suite du développement de cette page
+const getUrl = new URL(window.location.href);
+const id = getUrl.searchParams.get('id');
+const form = document.getElementById('selection');
+const commandes = document.getElementById('commandes');
+const prix = document.querySelector('.prix');
+const coutTotal = document.querySelector('.coutTotal');
 
-
-// Notre fonction getData qui récupère et affiche l'article
-function appareilPhotoUnique (id) {
-    fetch('http://localhost:3000/api/cameras/' + id) // On va chercher grâce à l'id notre article
-    .then((res) => res.json()) // Ici on parse le format JSON
+// Fonction qui récupère et affiche l'article
+function appareilChoix (id) {
+    fetch('http://localhost:3000/api/cameras/' + id) // Article affiché par l'id en fonction de la sélection en page index
+    .then((res) => res.json()) // Ici nous transmettons les données au format JSON
     .then((data) => {
-    
-        let name = data.name; // déclaration des variables depuis l'objet data qui contient toutes les infos nécessaires
-        let imageUrl = data.imageUrl;
-        let price = data.price / 1000 ;
-        let lenses = data.lenses;
-        
-        document.querySelector('h3').innerHTML = name; // on réinjecte nos données au HTML dynamiquement
-        document.querySelector('.image').src = imageUrl;
+         // Transmission des informations reçues au fichier HTML de façon dynamique
+        document.querySelector('h3').innerHTML = data.name;
+        document.querySelector('.image').src = data.imageUrl;
         document.querySelector('.prix').innerHTML = (new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(data.price/1000));
         let optionsLentilles = data.lenses.length;
         for(let i = 0; i < optionsLentilles; i++){
           document.getElementById('options').innerHTML +=  `<option>${data.lenses[i]}</option>`;
         }
-      }
-
-			
+      }	
 		);}
    
-appareilPhotoUnique (id);
+appareilChoix (id);// Appel de la fonction, pour affichage des données
 
-  // Initialisation de la variable panier
+  // variable panier
 let panier;
-// Si localStorage contient déjà un panier alors 'panier' vaut son contenu, sinon 'panier' est vide
+
 if ("monPanier" in localStorage) {
     panier = JSON.parse(localStorage.getItem('monPanier'));
 } else {
     panier = [];
 }
 
-function Panier(e) {
-
+function ajoutPanier(e) {
     // On bloque l'action par défaut du navigateur
     e.preventDefault();
 
@@ -47,9 +42,9 @@ function Panier(e) {
         id,
         name : document.querySelector('h3').textContent,
         img : document.querySelector('.image').src,
-        quantity : Number(document.querySelector('#Number').value),
+        quantity : Number(document.querySelector('#number').value),
         price : Number(document.querySelector('.prix').textContent),
-        varnish : document.querySelector('#options').value
+        options : document.querySelector('#options').value
     }
 
     // Vérification que la commande possède au moins un article sinon on sort de la fonction
@@ -58,7 +53,7 @@ function Panier(e) {
         return;
     }
 
-    // Véfication sur les répétitions
+    // Fonction pour la quantité
     for (let i = 0; i < panier.length; i++) {
         if (commande.options == panier[i].options && commande.id == panier[i].id) {
             commande.quantity += Number(panier[i].quantity);
@@ -66,18 +61,19 @@ function Panier(e) {
         }
     }
 
-    // On rentre ça dans le panier + reset des valeurs
+    // Informations transmises au panier + reset des valeurs
     panier.push(commande);
     form.reset();
-    displayPrice.innerHTML = 0;
+    coutTotal.innerHTML = 0;
     
-    // On place le panier dans le localStorage
+    // Placement du panier dans le localStorage
     localStorage.setItem('monPanier', JSON.stringify(panier));
 
 }
-// l'eventListener déclencheur
-commande.addEventListener('click', addPanier);
+// Click qui permet de placer le panier dans le localStorage
+commandes.addEventListener('click', ajoutPanier);
 
+//Fonctions pour augmenter et baisser la quantité
 function increaseValue() {
 	var value = parseInt(document.getElementById('number').value, 10);
 	value = isNaN(value) ? 0 : value;
@@ -92,3 +88,9 @@ function increaseValue() {
 	value--;
 	document.getElementById('number').value = value;
   }
+  // Fonctions pour afficher le coût total
+  function total(quantity) {
+    let result = quantity * prix.innerHTML;
+    coutTotal.innerHTML = result;
+  }
+  console.log(total);
