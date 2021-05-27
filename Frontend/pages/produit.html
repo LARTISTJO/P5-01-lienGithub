@@ -57,13 +57,13 @@
                         <p>Quantité:</p>
                         <div id="quantite">
                             <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            <input name="number" type="number" id="number"  placeholder="0" >
+                            <input name="number" type="number" id="number"  placeholder="0"  onchange="total(value)">
                             <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
                         </div>
                     </div> 
                 </div>  
-                <div class="boutons centre">
-                    <a href="../pages/panier.html"><button id="commandes" type="submit"  onclick="total()">Commandez</button></a>
+                <div id="boutons">
+                    <a href="../pages/panier.html"><button id="commandes" type="submit">Ajoutez au panier</button></a>
                 </div>
             </form>
             <p>Total :<span class="coutTotal">0</span> €</p>

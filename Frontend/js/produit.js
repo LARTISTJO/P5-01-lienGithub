@@ -24,6 +24,13 @@ function appareilChoix (id) {
    
 appareilChoix (id);// Appel de la fonction, pour affichage des données
 
+ // Fonction pour afficher le coût total
+ function total(value) {
+  let result = quantity * prix.innerHTML;
+  coutTotal.innerHTML = result;
+}
+console.log(total);
+
   // variable panier
 let panier;
 
@@ -34,32 +41,25 @@ if ("monPanier" in localStorage) {
 }
 
 function ajoutPanier(e) {
-    // On bloque l'action par défaut du navigateur
+    //Blocage de  l'action par défaut du navigateur
     e.preventDefault();
 
-    // Création de notre objet
+    // Création des éléments qui seront envoyés dans le localStorage
     let commande = {
         id,
         name : document.querySelector('h3').textContent,
         img : document.querySelector('.image').src,
-        quantity : Number(document.querySelector('#number').value),
-        price : Number(document.querySelector('.prix').textContent),
+        quantity : document.querySelector('#number').value,
+        prix : document.querySelector('.prix').value,
         options : document.querySelector('#options').value
     }
 
-    // Vérification que la commande possède au moins un article sinon on sort de la fonction
+    // Vérification que la commande possède au moins un article
     if (!commande.quantity > 0) {
         alert("vous devez choisir au moins un article pour passer la commande !")
         return;
     }
 
-    // Fonction pour la quantité
-    for (let i = 0; i < panier.length; i++) {
-        if (commande.options == panier[i].options && commande.id == panier[i].id) {
-            commande.quantity += Number(panier[i].quantity);
-            panier.splice(i,1);
-        }
-    }
 
     // Informations transmises au panier + reset des valeurs
     panier.push(commande);
@@ -88,9 +88,4 @@ function increaseValue() {
 	value--;
 	document.getElementById('number').value = value;
   }
-  // Fonctions pour afficher le coût total
-  function total(quantity) {
-    let result = quantity * prix.innerHTML;
-    coutTotal.innerHTML = result;
-  }
-  console.log(total);
+ 
