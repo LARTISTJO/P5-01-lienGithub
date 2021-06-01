@@ -21,7 +21,7 @@
                     <h1>Bienvenue sur Orinoco</h1>
                 </div>
                 <div id="info">
-                   <a href="index.html"><button id="index">Accueil</button></a> 
+                   <a href="index.html"><div id="index">Accueil</div></a>
                     <div id="basket">
                         <a href="panier.html"><i class="fas fa-shopping-basket"></i></a>
                     </div>
@@ -36,7 +36,7 @@
             
             <main id="main">
                 <figure id="produit">
-                    <img class="image">
+                    <img class="image" src="data:,">
                     <figcaption id ="capture">
                         <div class="description">
                             <h3>N°1 Pocket Kodak</h3>
@@ -45,7 +45,7 @@
                         <p class="prix"></p>
                     </figcaption>
                 </figure>
-            <form id="selection" action="panier.html" method="POST"></form>
+            <form id="selection" action="panier.html" method="POST">
                 <div id="type"> 
                     <div id="valeur">
                         <label for ="options">Lentilles:</label>
@@ -55,18 +55,19 @@
                 <div id="choix">  
                     <div id="nombre">         
                         <p>Quantité:</p>
-                        <div id="quantite">
-                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                            <input name="number" type="number" id="number"  placeholder="0"  onchange="total(value)">
-                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                        </div>
+                        <select id="quantityNumber" aria-label="Quantité">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
                     </div> 
                 </div>  
                 <div id="boutons">
-                    <a href="../pages/panier.html"><button id="commandes" type="submit">Ajoutez au panier</button></a>
+                    <button id="commandes" type="submit">Ajoutez au panier</button>
                 </div>
             </form>
-            <p>Total :<span class="coutTotal">0</span> €</p>
             </main>
             
 
@@ -79,7 +80,7 @@
             <div id="liste">
                 <a class="element" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
 				<a class="element" aria-label="lien pour rejoindre instagram" href="https://instagram.com/profile"><i class="fab fa-instagram"></i></a>
-                <a class="element"href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
+                <a class="element" href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
                 <p class="element">Mentions légales</p> 
                 <p class="element">Suivi commande</p>            
             </div>

@@ -27,6 +27,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 8px;
   }
 
   #logo-texte
@@ -352,12 +353,11 @@
    border: #eba797 solid 3px;
  }
 
- #quantite
+ .quantite
  {
    display: flex;
   width: 150px;
-  border: #eba797 3px solid;
-  border-radius: 10px;
+  margin-top: -5px;
 }
 
 .value-button 
@@ -367,7 +367,6 @@
   align-items: center;
   width: 40px;
   height: 40px;
-  text-align: center;
   background: #eee;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -381,22 +380,16 @@
   cursor: pointer;
 }
 
-#quantite #decrease 
+.quantite #decrease 
 {
   margin-right: -2px;
   border-radius: 8px 0 0 8px;
 }
 
-#quantite #increase 
+.quantite #increase 
 {
   margin-left: -2px;
   border-radius: 0 8px 8px 0;
-}
-
-#quantite #input-wrap 
-{
-  margin: 0px;
-  padding: 0px;
 }
 
 input#number 
@@ -428,15 +421,70 @@ label
 #commandes
 {
   width: 130px;
+  margin-bottom: 20px;
 }
 
  /*code css page panier*/
+
+ #main-panier
+ {
+  text-align: center;
+ }
+
+ .affichage
+ {
+   display: flex;
+   flex-direction: column;
+ }
+
+ #quantite-prix
+ {
+   margin-bottom: 15px;
+ }
+ .form-img
+ {
+   width: 200px;
+   margin: auto;
+   padding-top: 15px;
+ }
+ .quantite-panier
+ {
+   width: 50%;
+   margin-bottom: 15px;
+   justify-content: center;
+ }
+ 
+ #validation
+ {
+   margin-bottom: 15px;
+ }
+
+ #form-panier
+ {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 70%;
+   background-color: #eba797;
+   margin: auto;
+   margin-bottom: 30px;
+   border-radius: 25px;
+   box-shadow: 0 0 10px rgb(0 0 0 / 71%);
+ }
+
 
 
  #forme
  {
    display: flex;
    justify-content: center;
+ }
+
+ #btn-panier
+ {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10px;
  }
 
  #form 
@@ -600,6 +648,23 @@ label
       font-size: 28px;
     }
 
+
+    #form-panier
+ {
+   align-items: center;
+   flex-wrap: nowrap;
+   width: 80%;
+ }
+
+ .form-img
+ {
+   margin-left: 5%;
+ }
+
+ #quantite-prix
+ {
+   margin-left: 2%;
+ }
   }
 
   @media only screen and (min-width: 1024px)
