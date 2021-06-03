@@ -5,13 +5,13 @@ let mainHTML = document.querySelector('main');
 // Vérification de l'existance du panier
 if ("monPanier" in localStorage) {
     panier = JSON.parse(localStorage.getItem('monPanier'));
-    affichageCommande();
+    commandeAffichage();
 } else { // si absence du panier retour vers la page index
     window.location.href =`index.html`;
 }
 
 // La fonction permettant d'afficher tous les articles présents dans le panier
-function affichageCommande() {
+function commandeAffichage() {
     let affichage = document.createElement('div');
     affichage.className = "affichage";
     
@@ -19,24 +19,22 @@ function affichageCommande() {
     for (let i = 0; i < panier.length; i++) {
         let img = panier[i].img;
         let name = panier[i].name;
-        let prix= panier[i].price;
+        let prix= panier[i].prix*panier[i].quantity;
+        let prixVirgule = prix.toFixed(2)
         let quantity = panier[i].quantity;
+        let options = panier[i].options
 
         // Affichage des données obtenues au sein du localStorage
         let table =
-            `<form id="form-panier">
+            `<form id="formPanier">
                 <div id="img-texte">
                     <img class="form-img" src=${img}>
                     <h3>${name}</h3>
                 </div>
                 <div id="quantite-prix">
+                    <p>Lentilles : <br>${options}</p>
                     <p>Quantité : ${quantity}</p>
-                    <p>Prix : <span class="articlePrice">${prix*quantity}</span>€</p>
-                </div>
-                <div class="quantite quantite-panier">
-                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                    <input name="number" type="number" id="number"  placeholder="0"  onchange="total(value)">
-                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                    <p>Prix : <span class="prixArticle">${prixVirgule}</span>€</p>
                 </div>
                 <div id="btn-panier">
                     <button class="btn">
@@ -58,14 +56,15 @@ function totalPrice() {
     let affichagePrix = document.createElement('div');
     affichagePrix.className = "affichage-prix";
     let priceInfo = document.querySelectorAll('.prixArticle');
-    let sum = 0;
+    let sum = "";
     priceInfo.forEach(i => {
        i = Number(i.textContent);
-       sum += i;
+       sum += i.toFixed(2);
     });
-    affichagePrix.innerHTML = `Le prix total du panier est : <span class="totalPrice">${sum}</span>€`;
+    affichagePrix.innerHTML = `Le coût total du panier est : <span class="totalPrice">${sum}</span>€`;
     mainHTML.appendChild(affichagePrix);
 }
+
 
 // Fonction pour supprimer les articles du panier
 let suppr = document.querySelectorAll('.btn');
@@ -74,7 +73,7 @@ for (let i = 0; i < suppr.length; i++) {
             panier.splice(i, 1);
             localStorage.setItem('monPanier', JSON.stringify(panier));
         
-            // S'il n'y a plus rien, on vide le localStorage
+            // Si le panier est vide, on supprime le localStorage
             if (panier.length < 1) {
                 localStorage.removeItem('monPanier');
 
@@ -85,22 +84,27 @@ for (let i = 0; i < suppr.length; i++) {
 }
 
 //  addEventListener mis en place pour obtenir les coordonnées du client
-document.querySelector('form').addEventListener('submit', (e) => {
+document.querySelector('#form').addEventListener('submit', (e) => {
     // Blocage du comportement par défaut 
     e.preventDefault();
 
     // Création du formulaire qui récupèrera les données du client avec un tableau  nommé "produits"
-    let formInfo = {
+    let data = {
         contact : {
-            prenom: document.getElementById('prenom').value,
-            nom: document.getElementById('nom').value,
-            ville: document.getElementById('ville').value,
-            adresse: document.getElementById('adresse').value,
+            firstName: document.getElementById('prenom').value,
+            lastName: document.getElementById('nom').value,
+            city: document.getElementById('ville').value,
+            address: document.getElementById('adresse').value,
             email: document.getElementById('email').value
         },
-        produits : []
+        products : []
     }
 
+      // Si le panier est vide on stop la commande
+      if (!panier) {
+        alert("la commande ne peut pas être passée car le panier est vide");
+        return
+    }
 
     // Code mis en place pour que le client transmette les données correctement 
     if(!/^[ a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]+$/.test(data.contact.prenom)) {
@@ -113,7 +117,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
         return
     }
 
-    if(!/^[ a-zA-Zéèê\-]{5,20}/.test(data.contact.ville)) {
+    if(!/^[ a-zA-Zéèê\-]{5}/.test(data.contact.ville)) {
         alert("Attention, écrivez correctement le nom de votre ville (au minimum 5 lettres)");
         return
     }
@@ -121,22 +125,20 @@ document.querySelector('form').addEventListener('submit', (e) => {
     // fonction que l'on fait rentrer dans data.products pour s'adapter à la quantité demandée
     panier.forEach(elt => {
         for (let i = 0; i < elt.quantity; i++) {
-            formInfo.produits.push(elt.id);    
+            data.products.push(elt.id);    
         }
     })
 
     // Fetch créé avec la méthode POST 
     fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json',},
         body: JSON.stringify(data),
     })
     // Retour de l'envoi au serveur
     .then(res => res.json())
     .then(data => {
-        // Insertion au sein du localStorage 'data'
+        // Insertion au sein du localStorage de l'élément 'data'
         localStorage.setItem('confirmation', JSON.stringify(data));
         // Effacement du panier lorsque la commande est passée
         localStorage.removeItem('monPanier');

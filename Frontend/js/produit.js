@@ -13,9 +13,7 @@ function appareilChoix (id) {
          // Transmission des informations reçues au fichier HTML de façon dynamique
         document.querySelector('h3').innerHTML = data.name;
         document.querySelector('.image').src = data.imageUrl;
-        let prix= data.price / 100;
-        document.querySelector('.prix').innerHTML = prix;
-        
+        document.querySelector('.prix').textContent = data.price/1000;
         let optionsLentilles = data.lenses.length;
         for(let i = 0; i < optionsLentilles; i++){
           document.getElementById('options').innerHTML +=  `<option>${data.lenses[i]}</option>`;
@@ -25,7 +23,7 @@ function appareilChoix (id) {
    
 appareilChoix (id);// Appel de la fonction, pour affichage des données
 
-  // variable panier
+  // Création variable panier
 let panier;
 
 if ("monPanier" in localStorage) {
@@ -33,7 +31,7 @@ if ("monPanier" in localStorage) {
 } else {
     panier = [];
 }
-
+// Fonction qui récupère les éléments pour les transmettre à la page panier
 function ajoutPanier(e) {
     //Blocage de  l'action par défaut du navigateur
     e.preventDefault();
@@ -65,7 +63,6 @@ function ajoutPanier(e) {
     panier.push(commande);
     form.reset();
    
-    
     // Placement du panier dans le localStorage
     localStorage.setItem('monPanier', JSON.stringify(panier));
 

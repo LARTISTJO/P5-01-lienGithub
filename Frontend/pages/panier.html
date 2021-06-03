@@ -40,10 +40,10 @@
 
         <div id="forme">
             <form id="form" name="myForm" accept-charset="utf-8">
-                <input class="panier" type="text" id="prenom" name="prenom" placeholder="Prénom" required>
-                <input class="panier" type="text" id="nom"  name="nom" placeholder="Nom" required>
-                <input class="panier" type="text" id="ville" name="ville" placeholder="Ville" required>
-                <input class="panier" type="text" id="adresse" name="adresse" placeholder="Code Postal" pattern="[0-9]{5}" title="5 chiffres sont requis" required>
+                <input class="panier" type="text" id="prenom" name="prenom" placeholder="Prénom" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                <input class="panier" type="text" id="nom"  name="nom" placeholder="Nom" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                <input class="panier" type="text" id="ville" name="ville" placeholder="Ville" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required>
+                <input class="panier" type="text" id="adresse" name="adresse" placeholder="Adresse" pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$" required>
                 <input class="panier" type="email" id="email" name="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                 <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
             </form>
@@ -57,8 +57,7 @@
                 <a class="element" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
 				<a class="element" aria-label="lien pour rejoindre instagram" href="https://instagram.com/profile"><i class="fab fa-instagram"></i></a>
                 <a class="element" href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
-                <p class="element">Mentions légales</p> 
-                <p class="element">Suivi commande</p>            
+                <p class="element">Mentions légales</p>           
             </div>
         </footer>
 	   </div>
