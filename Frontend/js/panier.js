@@ -56,10 +56,10 @@ function totalPrice() {
     let affichagePrix = document.createElement('div');
     affichagePrix.className = "affichage-prix";
     let priceInfo = document.querySelectorAll('.prixArticle');
-    let sum = "";
+    let sum = 0;
     priceInfo.forEach(i => {
        i = Number(i.textContent);
-       sum += i.toFixed(2);
+       sum += i;
     });
     affichagePrix.innerHTML = `Le coût total du panier est : <span class="totalPrice">${sum}</span>€`;
     mainHTML.appendChild(affichagePrix);
