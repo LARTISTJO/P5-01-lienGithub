@@ -29,9 +29,9 @@ function appareilChoix (){
                 <div id="nombre">         
                     <p>Quantité:</p>
                     <div class="quantite quantite-panier"> 
-                        <div class ="plus" type="button"><i class="fas fa-plus"></i></div>
+                        <button id ="plus" ><i class="fas fa-plus"></i></button>
                         <input type="number" id="quantity" value="0">
-                        <div class ="moins" type="button"><i class="fas fa-minus"></i></div>
+                        <button class ="moins" type="button"><i class="fas fa-minus"></i></button>
                     </div>
                 </div> 
             </div> `;
@@ -65,12 +65,12 @@ function appareilChoix (){
   
 appareilChoix ();// Appel de la fonction, pour affichage des données
 
-let qtyPlus = document.querySelector (".plus");
+let qtyPlus = document.querySelector ('#plus');
 const qtyMoins = document.querySelector (".moins");
 let quantity = document.querySelector("#quantity");
 
-qtyplus.addEventListener("click",(e) =>{
-    quantity.innerHTML = parseInt(quantity.innerHTML) + 1
+qtyPlus.addEventListener('click', () =>{
+    quantity.value = parseInt(quantity.value) +1;
 });
 
 
