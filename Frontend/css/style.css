@@ -275,15 +275,14 @@
    margin-left: 5%;
  }
  
- #choix
- {
-   margin-left: 5%;
- }
+ 
 
  #nombre
  {
    display: flex;
-   width: 65%;
+   flex-direction: column;
+   width: 180px;
+   margin: auto;
    margin-bottom: 10px;
  }
 
@@ -308,12 +307,14 @@
    color: midnightblue;
  }
 
+ #quantity
+ {
+   text-align: center;
+ }
 
  .plus, .moins
  {
    font-size: 20px;
-   font-weight: bolder;
-   color: black;
  }
 
  .plus
@@ -329,16 +330,21 @@
  #type
  {
    color: midnightblue;
-   margin-left: 5%;
  }
 
  #valeur
  {
    display: flex;
-   width: 65%;
+   flex-wrap: wrap;
+   width: 180px;
+   margin: auto;
    margin-bottom: 20px;
  }
  
+ #options
+ {
+   margin: top 8px;
+ }
  select
  {
    border: #eba797 solid 3px;
@@ -346,9 +352,15 @@
 
  .quantite
  {
-   display: flex;
-  width: 150px;
-  margin-top: -5px;
+  display: flex;
+  margin-top: 8px;
+  border: #eba797 solid 3px;
+  text-align: center;
+}
+
+#quantite
+{
+  text-align: center;
 }
 
 .value-button 
@@ -444,12 +456,7 @@ label
    margin: auto;
    padding-top: 15px;
  }
- .quantite-panier
- {
-   width: 50%;
-   margin-bottom: 15px;
-   justify-content: center;
- }
+ 
  
  #validation
  {
@@ -615,21 +622,12 @@ label
     {
       margin-bottom: 2%;
     }
-    #nombre, #valeur
-    {
-      width: 40%;
-    }
     
     
   }
   
   @media only screen and (min-width: 768px)
   {
-
-    #nombre, #valeur
-    {
-      width: 30%;
-    }
 
     #logo-texte
     {
@@ -674,8 +672,5 @@ label
   @media only screen and (min-width: 1024px)
 
   {
-    #nombre, #valeur
-    {
-      width: 20%;
-    }
+    
   }
