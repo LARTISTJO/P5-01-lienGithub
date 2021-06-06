@@ -13,5 +13,7 @@ obtenirData.products.forEach(elt => {
 document.getElementById('orderId').innerHTML = obtenirData.orderId;
 document.getElementById('coutTotal').innerHTML = coutTotal/1000;
 
+localStorage.clear();
+
 // Affichage des données reçues en console
 console.log(obtenirData);

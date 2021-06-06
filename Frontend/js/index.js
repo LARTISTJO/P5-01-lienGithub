@@ -14,7 +14,7 @@ function appareilPhoto () {
 		let prix = data[i].price /1000 + "€";
         let id = data[i]._id;
 
-		let produit =                                   // <- variable où l'on écrit le modèle HTML
+		let produits =                                   // <- variable où l'on écrit le modèle HTML
 		`<figure>
             	<img src="${imageUrl}" alt="Appareil photo vintage"</img>
             	<figcaption class="description">
@@ -25,7 +25,7 @@ function appareilPhoto () {
             	</figcaption> 
 			</figure>`
 
-			structure.innerHTML += produit;
+			structure.innerHTML += produits;
 	}
 })
 
@@ -35,3 +35,6 @@ function appareilPhoto () {
 }
 
 appareilPhoto ();
+
+
+

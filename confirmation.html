@@ -2,13 +2,13 @@
 <html lang="fr">
   <head>
 			<meta charset="utf-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 			<title>Orinoco</title>
-			<link rel="stylesheet" href="../css/style.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+			<link rel="stylesheet" href="Frontend/css/style.css">
 			<script src="https://kit.fontawesome.com/ca09bd6d26.js" crossorigin="anonymous"></script>
 			<link rel="preconnect" href="https://fonts.gstatic.com">
 			<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">	
-			<script src="../js/index.js" defer></script>	
+            <script src="Frontend/js/confirmation.js" defer></script>	
   </head>
 
   <body>
@@ -16,16 +16,17 @@
         	<header>
                 <div id="logo-texte">
 					<div id ="logo">
-                    	<img src="../images/logo/Orinoco.png" alt="logo orinoco">
+                    	<img src="Frontend/images/logo/Orinoco.png" alt="logo orinoco">
 					</div>
                     <h1>Bienvenue sur Orinoco</h1>
                 </div>
                 <div id="info">
+                    <a href="index.html"><div id="index">Accueil</div></a>
                     <div id="basket">
-                        <a href="../pages/panier.html"><i class="fas fa-shopping-basket"></i></a>
+                        <a href="panier.html"><i class="fas fa-shopping-basket"></i></a>
                     </div>
                 </div>
-
+				
 			<section id="intro">
                 <h2 id="intro-h2">Découvrez notre merveilleuse liste d’appareils photo vintage
                     que vous pourrez personnaliser avec différentes lentilles !</h2>
@@ -33,27 +34,36 @@
             </section>
 		</header>
 
-		<main>
-            <section id="app-photo">
-                <h2>Appareils photo vintage</h2>
-				<div class="appareils">
-					<!--
-					Insertion Javascript
-				-->
-				</div>
-			</section>
+        <main id="confirmation">
+            <section id="remerciements">
+                <h3>Bonjour,</h3>
+                <p>
+                    Nous vous remercions pour votre achat sur Orinoco !
+                </p>
+                <p>
+                    Ci-dessous se trouve le récapitulatif de votre commande.
+                </p>
+                <p> À bientôt sur Orinoco !</p>
+            </section>
+            <section id="recapitulatif">
+                <h3>Récapitulatif de votre commande</h3>
+                <p>Commande n° : <span id="orderId"></span></p>
+                <p>Le total de votre commande est : <span id="coutTotal"></span>€</p>
+            </section>
         </main>
+
         <footer>
             <div id="logo-footer">
-                <img src="../images/logo/orinoco-small.png" alt='logo orinoco'>
+                <img src="Frontend/images/logo/orinoco-small.png" alt='logo orinoco'>
 			</div>
             <div id="liste">
                 <a class="element" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
 				<a class="element" aria-label="lien pour rejoindre instagram" href="https://instagram.com/profile"><i class="fab fa-instagram"></i></a>
                 <a class="element" href="mailto:orinoco@hotmail.fr"><p>Contact</p></a>    
-                <p class="element">Mentions légales</p>            
+                <p class="element">Mentions légales</p>           
             </div>
         </footer>
 	   </div>
     </body>
 </html>
+  

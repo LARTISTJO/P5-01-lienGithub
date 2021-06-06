@@ -275,8 +275,6 @@
    margin-left: 5%;
  }
  
- 
-
  #nombre
  {
    display: flex;
@@ -307,10 +305,15 @@
    color: midnightblue;
  }
 
- #quantity
+ #quantity, #options
  {
-   text-align: center;
-   width: 60px;
+  display: flex;
+  margin-top: 8px;
+  border: #eba797 outset 4px;
+  border-radius: 30px;
+  text-align: center;
+  height: 35px;
+  font-size: 16px;
  }
 
  .plus, .moins
@@ -342,23 +345,6 @@
    margin-bottom: 20px;
  }
  
- #options
- {
-   margin: top 8px;
- }
- select
- {
-   border: #eba797 solid 3px;
- }
-
- .quantite
- {
-  display: flex;
-  margin-top: 8px;
-  border: #eba797 outset 4px;
-  border-radius: 30px;
-  text-align: center;
-}
 
 #plus
 {
@@ -407,26 +393,6 @@
   border-radius: 0 8px 8px 0;
 }
 
-input#number 
-{
-  text-align: center;
-  border: none;
-  margin: 0px;
-  width: 40px;
-  height: 40px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-label
-{
-  font-size: 16px;
-  font-weight: 700;
-}
 #boutons
 {
   display: flex;

@@ -4,11 +4,11 @@
 			<meta charset="utf-8" />
 			<title>Orinoco</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-			<link rel="stylesheet" href="../css/style.css">
+			<link rel="stylesheet" href="Frontend/css/style.css">
 			<script src="https://kit.fontawesome.com/ca09bd6d26.js" crossorigin="anonymous"></script>
 			<link rel="preconnect" href="https://fonts.gstatic.com">
 			<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">	
-            <script src="../js/confirmation.js" defer></script>	
+            <script src="Frontend/js/panier.js" defer></script>	
   </head>
 
   <body>
@@ -16,7 +16,7 @@
         	<header>
                 <div id="logo-texte">
 					<div id ="logo">
-                    	<img src="../images/logo/Orinoco.png" alt="logo orinoco">
+                    	<img src="Frontend/images/logo/Orinoco.png" alt="logo orinoco">
 					</div>
                     <h1>Bienvenue sur Orinoco</h1>
                 </div>
@@ -34,27 +34,24 @@
             </section>
 		</header>
 
-        <main id="confirmation">
-            <section id="remerciements">
-                <h3>Bonjour,</h3>
-                <p>
-                    Nous vous remercions pour votre achat sur Orinoco !
-                </p>
-                <p>
-                    Ci-dessous se trouve le récapitulatif de votre commande.
-                </p>
-                <p> À bientôt sur Orinoco !</p>
-            </section>
-            <section id="recapitulatif">
-                <h3>Récapitulatif de votre commande</h3>
-                <p>Commande n° : <span id="orderId"></span></p>
-                <p>Le total de votre commande est : <span id="coutTotal"></span>€</p>
-            </section>
+        <main id="main-panier">
+            <h3 id="validation">Validation de votre panier</h3>
         </main>
+
+        <div id="forme">
+            <form id="form" name="myForm" accept-charset="utf-8">
+                <input class="panier" type="text" id="prenom" name="prenom" placeholder="Prénom" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                <input class="panier" type="text" id="nom"  name="nom" placeholder="Nom" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$" required>
+                <input class="panier" type="text" id="ville" name="ville" placeholder="Ville" pattern="^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$" required>
+                <input class="panier" type="text" id="adresse" name="adresse" placeholder="Adresse" pattern="^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$" required>
+                <input class="panier" type="email" id="email" name="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
+            </form>
+        </div>
 
         <footer>
             <div id="logo-footer">
-                <img src="../images/logo/orinoco-small.png" alt='logo orinoco'>
+                <img src="Frontend/images/logo/orinoco-small.png" alt='logo orinoco'>
 			</div>
             <div id="liste">
                 <a class="element" aria-label="lien pour rejoindre facebook" href="https://facebook.com/profile"><i class="fab fa-facebook"></i></a>
@@ -65,5 +62,5 @@
         </footer>
 	   </div>
     </body>
-</html>
+</html> 
   

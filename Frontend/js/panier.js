@@ -36,6 +36,11 @@ function commandeAffichage() {
                     <p>Quantité : ${quantity}</p>
                     <p>Prix : <span class="prixArticle">${prixVirgule}</span>€</p>
                 </div>
+                <div class="quantite quantite-panier">
+                    <div class="value-button" id="decrease" value="Decrease Value">-</div>
+                    <input name="number" type="number" id="number"  placeholder="0">
+                    <div class="value-button" id="increase" value="Increase Value">+</div>
+                </div>
                 <div id="btn-panier">
                     <button class="btn">
                     <i class="fas fa-times"></i>
@@ -150,4 +155,10 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         console.error(error);
     });
 })
+
+
+
+
+
+
 
