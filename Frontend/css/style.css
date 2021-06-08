@@ -67,14 +67,14 @@
       margin-top: 10px;
   }
 
-  button 
+  .btn 
   {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 25px;
     width: 90px;
-    height: 35px;
+    height: 45px;
     font-family: 'Playfair display';
     font-size: 14px;
     background-color: slateblue;
@@ -82,7 +82,7 @@
     border: none;
   }
 
-  button:hover 
+  .btn:hover 
   {
     box-shadow: 0px 0px 30px #696969;
     opacity: 0.85;
@@ -345,54 +345,6 @@
    margin-bottom: 20px;
  }
  
-
-#plus
-{
-  border-radius: 30px 0px 0px 30px ;
-}
-
-#moins
-{
-  border-radius: 0px 30px 30px 0px ;
-}
-
-#quantite
-{
-  text-align: center;
-}
-
-.value-button 
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.value-button:hover {
-  cursor: pointer;
-}
-
-.quantite #decrease 
-{
-  margin-right: -2px;
-  border-radius: 8px 0 0 8px;
-}
-
-.quantite #increase 
-{
-  margin-left: -2px;
-  border-radius: 0 8px 8px 0;
-}
-
 #boutons
 {
   display: flex;
@@ -400,11 +352,13 @@
   margin-top: 20px;
 }
 
-#commandes
-{
-  width: 130px;
-  margin-bottom: 20px;
-}
+#btn-panier, #quantite-panier
+ {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10px;
+   margin-top: 10px;
+ }
 
  /*code css page panier*/
 
@@ -419,11 +373,6 @@
    flex-direction: column;
  }
 
- #quantite-prix
- {
-   margin-bottom: 15px;
- }
-
  #quantite-prix p
  {
   margin-bottom: 7px;
@@ -434,7 +383,6 @@
    margin: auto;
    padding-top: 15px;
  }
- 
  
  #validation
  {
@@ -460,12 +408,6 @@
    justify-content: center;
  }
 
- #btn-panier
- {
-   display: flex;
-   justify-content: center;
-   margin-bottom: 10px;
- }
 
  #form 
  {
@@ -489,6 +431,44 @@
 {
   margin-bottom: 0px;
 }
+
+#quantite-panier
+{
+  width: 120px;
+  border: slateblue solid 4px;
+  border-radius: 20px;
+}
+
+#moins, #plus
+{
+  display: flex;
+  align-items: center;
+  width: 40px;
+  border: none;
+  background-color: #eba797;
+}
+
+#moins
+{
+  border-radius: 20px 0px 0px 20px;
+}
+
+#plus
+{
+  border-radius: 0px 20px 20px 0px;
+}
+
+#numberQuantite
+{
+  width: 40px;
+  font-size: 20px;
+  border: none;
+  border-right:slateblue solid 4px;
+  border-left: slateblue solid 4px;
+  text-align: center;
+  height: 40px;
+}
+
 
  /*code css page confirmation*/
 

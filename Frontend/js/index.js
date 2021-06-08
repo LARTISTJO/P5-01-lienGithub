@@ -21,7 +21,7 @@ function appareilPhoto () {
                 	<h3>${name}</h3>
                 	<p>Magnifique Appareil, il fera votre bonheur</p>
 					<div class="prix">${prix}</div>
-                	<a href="produit.html?id=${id}"><button>En savoir +</button></a>   
+                	<a href="produit.html?id=${id}"><button class="btn">En savoir +</button></a>   
             	</figcaption> 
 			</figure>`
 

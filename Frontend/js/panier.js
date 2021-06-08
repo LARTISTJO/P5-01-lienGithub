@@ -3,8 +3,8 @@ let panier;
 let mainHTML = document.querySelector('main');
 
 // Vérification de l'existance du panier
-if ("monPanier" in localStorage) {
-    panier = JSON.parse(localStorage.getItem('monPanier'));
+if ("panier" in localStorage) {
+    panier = JSON.parse(localStorage.getItem('panier'));
     commandeAffichage();
 } else { // si absence du panier retour vers la page index
     window.location.href =`index.html`;
@@ -21,7 +21,7 @@ function commandeAffichage() {
         let name = panier[i].name;
         let prix= panier[i].prix*panier[i].quantity;
         let prixVirgule = prix.toFixed(2)
-        let quantity = panier[i].quantity;
+        let quantite = panier[i].quantity;
         let options = panier[i].options
 
         // Affichage des données obtenues au sein du localStorage
@@ -33,13 +33,12 @@ function commandeAffichage() {
                 </div>
                 <div id="quantite-prix">
                     <p>Lentilles : <br>${options}</p>
-                    <p>Quantité : ${quantity}</p>
                     <p>Prix : <span class="prixArticle">${prixVirgule}</span>€</p>
                 </div>
-                <div class="quantite quantite-panier">
-                    <div class="value-button" id="decrease" value="Decrease Value">-</div>
-                    <input name="number" type="number" id="number"  placeholder="0">
-                    <div class="value-button" id="increase" value="Increase Value">+</div>
+                <div id="quantite-panier">
+                    <button id="moins"><i class="fas fa-minus"></i></button>
+                    <input type="number" id="numberQuantite" value=${quantite}>
+                    <button id="plus"><i class="fas fa-plus"></i></button>
                 </div>
                 <div id="btn-panier">
                     <button class="btn">
@@ -48,13 +47,29 @@ function commandeAffichage() {
                 </div>
             </form>`;
 
-           
-        affichage.innerHTML += table;
+            const fragments = document.createRange()
+            .createContextualFragment(table)
+            document.querySelector('main').appendChild(fragments)
     }
     // Création du  HTML et affichage de la fonction  totalPrice
-    mainHTML.appendChild(affichage);
     totalPrice();
 }
+
+let numberQuantite = document.querySelector("#numberQuantite");
+let plus = document.querySelector("#plus");
+let moins = document.querySelector("#moins");
+
+plus.addEventListener('click', () => {
+    numberQuantite.value = parseInt(numberQuantite.value) ++;
+    localStorage.setItem('panier', JSON.stringify(panier));
+    window.location.reload;
+})
+
+moins.addEventListener('click', () => {
+    quantite.value = parseInt(quantite.value) --;
+    localStorage.setItem('panier', JSON.stringify(panier));
+    window.location.reload;
+})
 
 // Calcul du prix total
 function totalPrice() {
@@ -66,7 +81,7 @@ function totalPrice() {
        i = Number(i.textContent);
        sum += i;
     });
-    affichagePrix.innerHTML = `Le coût total du panier est : <span class="totalPrice">${sum}</span>€`;
+    affichagePrix.innerHTML = `Le coût total du panier est : <span class="totalPrice">${sum.toFixed(2)}</span>€`;
     mainHTML.appendChild(affichagePrix);
 }
 
@@ -76,17 +91,30 @@ let suppr = document.querySelectorAll('.btn');
 for (let i = 0; i < suppr.length; i++) {
         suppr[i].addEventListener('click', () => {
             panier.splice(i, 1);
-            localStorage.setItem('monPanier', JSON.stringify(panier));
-        
+            localStorage.setItem('panier', JSON.stringify(panier));
+            
             // Si le panier est vide, on supprime le localStorage
             if (panier.length < 1) {
-                localStorage.removeItem('monPanier');
+                localStorage.removeItem('panier');
 
               // Rafraîchissement de la page
               window.location.reload();
             }
         })
 }
+
+let forme = document.querySelector('#forme');
+let formulaire = 
+ `<form id="form" name="myForm">
+ <input class="panier" type="text" id="prenom" name="prenom" placeholder="Prénom">
+ <input class="panier" type="text" id="nom"  name="nom" placeholder="Nom">
+ <input class="panier" type="text" id="ville" name="ville" placeholder="Ville">
+ <input class="panier" type="text" id="adresse" name="adresse" placeholder="Adresse">
+ <input class="panier" type="email" id="email" name="email" placeholder="E-mail">
+ <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
+</form>`;
+
+forme.innerHTML = formulaire;
 
 //  addEventListener mis en place pour obtenir les coordonnées du client
 document.querySelector('#form').addEventListener('submit', (e) => {
@@ -146,7 +174,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         // Insertion au sein du localStorage de l'élément 'data'
         localStorage.setItem('confirmation', JSON.stringify(data));
         // Effacement du panier lorsque la commande est passée
-        localStorage.removeItem('monPanier');
+        localStorage.removeItem('panier');
         // Ouverture de la page de confirmation
         location.replace("confirmation.html")
     })
@@ -155,10 +183,3 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         console.error(error);
     });
 })
-
-
-
-
-
-
-

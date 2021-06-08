@@ -1,19 +1,16 @@
 // Variables pour récupérer id
-const getUrlId = window.location.search;
-const getUrlParams = new URLSearchParams(getUrlId);
-const id = getUrlParams.get("id");
-
+const getUrlId =  new URL (window.location.href);
+const id = getUrlId.searchParams.get("id");
 
 // Variables pour structurer le produit
-let structureProduit = document.querySelector('#main');
 let product = ''
+
 // Fonction qui récupère et affiche l'article
 function appareilChoix (){
-    fetch(`http://localhost:3000/api/cameras/${id}`) // Article affiché par l'id en fonction de la sélection en page index
+    fetch('http://localhost:3000/api/cameras/' + id) // Article affiché par l'id en fonction de la sélection en page index
     .then((res) => res.json()) // Ici nous transmettons les données au format JSON
-    .then( appareil => {
+    .then (appareil => {
                
-       
          product =
                 `<figure id="produit">
                 <img class="image" src="${appareil.imageUrl}">
@@ -22,7 +19,7 @@ function appareilChoix (){
                         <h3>${appareil.name}</h3>
                         <p> Magnifique appareil photo il fera votre bonheur</p>
                     </div>
-                    <p class="prix">${appareil.price/1000}€</p>
+                    <p class="prix">${appareil.price/1000}</p>
                 </figcaption>
             </figure>
         <div id="selection">
@@ -39,13 +36,13 @@ function appareilChoix (){
                     <select id ="options">
                 </div>
             </div> `
-            appareil.lenses.forEach(lentilles => {
+            for (lentilles in appareil.lenses) {
                 product += 
-                `<option value= "${lentilles}">${lentilles}</option>`
-            })
+                `<option value= "${appareil.lenses[lentilles]}">${appareil.lenses[lentilles]}</option>`
+            } 
             product +=  `</select>
             <div id="boutons">
-                <button id="commandes" onclick="ajoutPanier(e)">Ajoutez au panier</button>
+                <button class="btn" onclick="ajoutPanier()">Ajoutez au panier</button>
             </div>
         </div>`
 
@@ -53,39 +50,32 @@ function appareilChoix (){
         .createContextualFragment(product)
         document.getElementById('main').appendChild(fragment)       
 })
-
-.catch ((err) => {
-	alert (err);
-})
 }
-  
-appareilChoix ();// Appel de la fonction, pour affichage des données
-
- const commandes = document.querySelector("#commandes");
+ 
+appareilChoix(id);// Appel de la fonction, pour affichage des données
 
 // Création variable panier
-let panier;
+let panier = [];
 
-if ("monPanier" in localStorage) {
-    panier = JSON.parse(localStorage.getItem('monPanier'));
-} else {
-    panier = [];
+if ("panier" in localStorage) {
+   // localStorage.clear();
+   console.log("panier is in locola storage") ;
+    panier = JSON.parse(localStorage.getItem('panier'));
 }
+
 // Fonction qui récupère les éléments pour les transmettre à la page panier
-function ajoutPanier(e) {
-    //Blocage de  l'action par défaut du navigateur
-    e.preventDefault();
+function ajoutPanier() {
 
     // Création des éléments qui seront envoyés dans le localStorage
     let commande = {
         id,
         name : document.querySelector('h3').textContent,
         img : document.querySelector('.image').src,
-        quantity : Number (document.querySelector('#quantityNumber').value),
-        prix : Number (document.querySelector('.prix').textContent),
+        quantity : Number(document.querySelector('#quantity').value),
+        prix : Number(document.querySelector('.prix').textContent),
         options : document.querySelector('#options').value
     }
-
+      
     // Vérification que la commande possède au moins un article
     if (!commande.quantity > 0) {
         alert("vous devez choisir au moins un article pour passer la commande !")
@@ -98,18 +88,10 @@ function ajoutPanier(e) {
             panier.splice(i,1);
         }
     }
-
-    // Informations transmises au panier + reset des valeurs
+    // Informations transmises au panier
     panier.push(commande);
-    form.reset();
-   
+    
     // Placement du panier dans le localStorage
-    localStorage.setItem('monPanier', JSON.stringify(panier));
-
+    localStorage.setItem('panier', JSON.stringify(panier));
+    console.log(panier); 
 }
-// Click qui permet de placer le panier dans le localStorage
-commandes.addEventListener('click', ajoutPanier);
-
-
-
- 
