@@ -376,7 +376,9 @@
  #quantite-prix p
  {
   margin-bottom: 7px;
+  font-size: 20px;
  }
+ 
  .form-img
  {
    width: 200px;
@@ -432,39 +434,12 @@
   margin-bottom: 0px;
 }
 
-#quantite-panier
-{
-  width: 120px;
-  border: slateblue solid 4px;
-  border-radius: 20px;
-}
-
-#moins, #plus
-{
-  display: flex;
-  align-items: center;
-  width: 40px;
-  border: none;
-  background-color: #eba797;
-}
-
-#moins
-{
-  border-radius: 20px 0px 0px 20px;
-}
-
-#plus
-{
-  border-radius: 0px 20px 20px 0px;
-}
-
 #numberQuantite
 {
-  width: 40px;
-  font-size: 20px;
-  border: none;
-  border-right:slateblue solid 4px;
-  border-left: slateblue solid 4px;
+  width: 90px;
+  font-size: 22px;
+  border: slateblue outset 4px;
+  border-radius: 25px;
   text-align: center;
   height: 40px;
 }

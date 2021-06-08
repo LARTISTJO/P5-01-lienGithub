@@ -59,7 +59,6 @@ let panier = [];
 
 if ("panier" in localStorage) {
    // localStorage.clear();
-   console.log("panier is in locola storage") ;
     panier = JSON.parse(localStorage.getItem('panier'));
 }
 

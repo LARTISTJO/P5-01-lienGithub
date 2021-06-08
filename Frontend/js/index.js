@@ -13,13 +13,14 @@ function appareilPhoto () {
 		let imageUrl = data[i].imageUrl;
 		let prix = data[i].price /1000 + "€";
         let id = data[i]._id;
+		let description = data[i].description;
 
 		let produits =                                   // <- variable où l'on écrit le modèle HTML
 		`<figure>
             	<img src="${imageUrl}" alt="Appareil photo vintage"</img>
             	<figcaption class="description">
                 	<h3>${name}</h3>
-                	<p>Magnifique Appareil, il fera votre bonheur</p>
+                	<p>${description}</p>
 					<div class="prix">${prix}</div>
                 	<a href="produit.html?id=${id}"><button class="btn">En savoir +</button></a>   
             	</figcaption> 

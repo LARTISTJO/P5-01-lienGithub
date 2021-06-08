@@ -20,11 +20,13 @@ function commandeAffichage() {
         let img = panier[i].img;
         let name = panier[i].name;
         let prix= panier[i].prix*panier[i].quantity;
-        let prixVirgule = prix.toFixed(2)
+        let prixVirgule = prix.toFixed(2);
         let quantite = panier[i].quantity;
-        let options = panier[i].options
-
-        // Affichage des données obtenues au sein du localStorage
+        quantite.i = panier[i];
+        let options = panier[i].options;
+        let id = panier[i].id;
+       
+        // Affichage des données obtenues au sein du localStorage 
         let table =
             `<form id="formPanier">
                 <div id="img-texte">
@@ -36,9 +38,7 @@ function commandeAffichage() {
                     <p>Prix : <span class="prixArticle">${prixVirgule}</span>€</p>
                 </div>
                 <div id="quantite-panier">
-                    <button id="moins"><i class="fas fa-minus"></i></button>
-                    <input id="numberQuantite" value=${quantite}>
-                    <button id="plus"><i class="fas fa-plus"></i></button>
+                    <input type= "number" id="numberQuantite" onchange="modifierPanier(${quantite})" value=${quantite}>
                 </div>
                 <div id="btn-panier">
                     <button class="btn">
@@ -55,21 +55,15 @@ function commandeAffichage() {
     totalPrice();
 }
 
-let numberQuantite = document.querySelector("#numberQuantite");
-let plus = document.querySelector("#plus");
-let moins = document.querySelector("#moins");
+let quantite = document.querySelector("#numberQuantite").value;
 
-plus.addEventListener('click', () => {
-    numberQuantite.value = parseInt(numberQuantite.value) +1;
-    localStorage.setItem('panier', JSON.stringify(panier));
-    window.location.reload;
-})
+function modifierPanier(quantite){
+//console.log("valeur avant modification");
+//console.log(panier);
+console.log(quantite);
+}
 
-moins.addEventListener('click', () => {
-    quantite.value = parseInt(quantite.value) -1;
-    localStorage.setItem('panier', JSON.stringify(panier));
-    window.location.reload;
-})
+
 
 // Calcul du prix total
 function totalPrice() {
@@ -81,10 +75,9 @@ function totalPrice() {
        i = Number(i.textContent);
        sum += i;
     });
-    affichagePrix.innerHTML = `Le coût total du panier est : <span class="totalPrice">${sum.toFixed(2)}</span>€`;
+    affichagePrix.innerHTML = `Le prix total du panier est : <span class="totalPrice">${sum.toFixed(2)}</span>€`;
     mainHTML.appendChild(affichagePrix);
 }
-
 
 // Fonction pour supprimer les articles du panier
 let suppr = document.querySelectorAll('.btn');
