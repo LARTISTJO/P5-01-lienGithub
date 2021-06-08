@@ -37,7 +37,7 @@ function commandeAffichage() {
                 </div>
                 <div id="quantite-panier">
                     <button id="moins"><i class="fas fa-minus"></i></button>
-                    <input type="number" id="numberQuantite" value=${quantite}>
+                    <input id="numberQuantite" value=${quantite}>
                     <button id="plus"><i class="fas fa-plus"></i></button>
                 </div>
                 <div id="btn-panier">
@@ -60,13 +60,13 @@ let plus = document.querySelector("#plus");
 let moins = document.querySelector("#moins");
 
 plus.addEventListener('click', () => {
-    numberQuantite.value = parseInt(numberQuantite.value) ++;
+    numberQuantite.value = parseInt(numberQuantite.value) +1;
     localStorage.setItem('panier', JSON.stringify(panier));
     window.location.reload;
 })
 
 moins.addEventListener('click', () => {
-    quantite.value = parseInt(quantite.value) --;
+    quantite.value = parseInt(quantite.value) -1;
     localStorage.setItem('panier', JSON.stringify(panier));
     window.location.reload;
 })
