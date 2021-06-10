@@ -444,6 +444,30 @@
   height: 40px;
 }
 
+.pageIndex
+{
+  margin: 20px;
+  text-decoration: underline;
+}
+
+#panier-vide 
+{
+  display: none;
+  width: 70%;
+  margin: auto;
+  background-color: lavenderblush;
+  line-height: 30px;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 71%);
+}
+
+#panier-vide p
+{
+  font-size: 22px;
+}
+
 
  /*code css page confirmation*/
 

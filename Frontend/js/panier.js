@@ -7,7 +7,7 @@ if ("panier" in localStorage) {
     panier = JSON.parse(localStorage.getItem('panier'));
     commandeAffichage();
 } else { // si absence du panier retour vers la page index
-    window.location.href =`index.html`;
+    document.querySelector('#panier-vide').style.display = "flex";
 }
 
 // La fonction permettant d'afficher tous les articles présents dans le panier
@@ -26,6 +26,7 @@ function commandeAffichage() {
        
         // Affichage des données obtenues au sein du localStorage 
         let table =
+        
             `<form id="formPanier">
                 <div id="img-texte">
                     <img class="form-img" src=${img}>
