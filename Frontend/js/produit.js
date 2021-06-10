@@ -17,7 +17,7 @@ function appareilChoix (){
                 <figcaption id ="capture">
                     <div class="description">
                         <h3>${appareil.name}</h3>
-                        <p> Magnifique appareil photo il fera votre bonheur</p>
+                        <p>${appareil.description}</p>
                     </div>
                     <p class="prix">${appareil.price/1000}</p>
                 </figcaption>
@@ -68,12 +68,14 @@ function ajoutPanier() {
     // Création des éléments qui seront envoyés dans le localStorage
     let commande = {
         id,
+        options : document.querySelector('#options').value,
         name : document.querySelector('h3').textContent,
         img : document.querySelector('.image').src,
         quantity : Number(document.querySelector('#quantity').value),
-        prix : Number(document.querySelector('.prix').textContent),
-        options : document.querySelector('#options').value
+        prix : Number(document.querySelector('.prix').textContent)
     }
+
+    console.log(commande);
       
     // Vérification que la commande possède au moins un article
     if (!commande.quantity > 0) {

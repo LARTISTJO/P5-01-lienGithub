@@ -8,19 +8,15 @@ let confirmation = document.querySelector('#confirmation');
 let recap =
 ` <section id="remerciements">
 <h3>Bonjour,</h3>
-<p>
-    Nous vous remercions pour votre achat !
-</p>
-<p>
-    Ci-dessous se trouve le récapitulatif de votre commande.
-</p>
+<p> Merci pour votre achat sur notre site !</p>
+<p>Votre commande a été validée son montant est de : <span id="coutTotal"></span>€</p>
+<p>La référence de votre commande est : <div id="orderId".></div></p>
+<p>Vous recevrez un mail de confirmation à l'adresse : <div id="emaill"></div></p> 
+<p>Elle vous sera envoyée par colis à l'adresse suivante :</p>
+<div id="names"><span id="firstName"></span><span id="lastName"></span></div>
+<span id="address"></span><span id="city"></span>
 <p> À bientôt sur Orinoco !</p>
-</section>
-<section id="recapitulatif">
-<h3>Récapitulatif de votre commande</h3>
-<p>Commande n° : <span id="orderId"></span></p>
-<p>Le total de votre commande est : <span id="coutTotal"></span>€</p>
-</section>`;
+`;
 
 confirmation.innerHTML = recap;
 
@@ -32,7 +28,11 @@ obtenirData.products.forEach(elt => {
 // Affichage du numéro de commande et du coût total des articles sur la page confirmation.html
 document.getElementById('orderId').innerHTML = obtenirData.orderId;
 document.getElementById('coutTotal').innerHTML = coutTotal/1000;
-
+document.getElementById('firstName').innerHTML = obtenirData.contact.firstName;
+document.getElementById('lastName').innerHTML = obtenirData.contact.lastName;
+document.getElementById('address').innerHTML = obtenirData.contact.address;
+document.getElementById('city').innerHTML = obtenirData.contact.city;
+document.getElementById('emaill').innerHTML = obtenirData.contact.email;
 // Affichage des données reçues en console
 console.log(obtenirData);
 
