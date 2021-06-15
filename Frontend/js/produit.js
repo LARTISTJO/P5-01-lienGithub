@@ -11,15 +11,19 @@ function appareilChoix (){
     .then((res) => res.json()) // Ici nous transmettons les données au format JSON
     .then (appareil => {
                
+        
          product =
                 `<figure id="produit">
                 <img class="image" src="${appareil.imageUrl}">
-                <figcaption id ="capture">
-                    <div class="description">
+                <figcaption>
+                    <div class="descriptions">
                         <h3>${appareil.name}</h3>
                         <p>${appareil.description}</p>
                     </div>
-                    <p class="prix">${appareil.price/1000}</p>
+                    <div id="euro">
+                        <p class="prix">${appareil.price/1000}</p>
+                        <span>€</span>
+                    </div> 
                 </figcaption>
             </figure>
         <div id="selection">

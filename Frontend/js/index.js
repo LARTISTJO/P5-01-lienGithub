@@ -18,9 +18,9 @@ function appareilPhoto () {
 		let produits =                                   // <- variable où l'on écrit le modèle HTML
 		`<figure>
             	<img src="${imageUrl}" alt="Appareil photo vintage"</img>
-            	<figcaption class="description">
+            	<figcaption>
                 	<h3>${name}</h3>
-                	<p>${description}</p>
+                	<p  class="description">${description}</p>
 					<div class="prix">${prix}</div>
                 	<a href="produit.html?id=${id}"><button class="btn">En savoir +</button></a>   
             	</figcaption> 
