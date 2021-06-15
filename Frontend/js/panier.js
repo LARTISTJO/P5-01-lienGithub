@@ -107,7 +107,7 @@ let formulaire =
 forme.innerHTML = formulaire;
 
     // variables créées pour vérifier la validité des informations transmises par le client
-    const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
+    const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){3,25}$/;
     const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
     const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
     const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
@@ -116,7 +116,7 @@ forme.innerHTML = formulaire;
 document.querySelector('#form').addEventListener('submit', (e) => {
     // Blocage du comportement par défaut 
     e.preventDefault();
-    // Création du formulaire qui récupèrera les données du client avec un tableau  nommé "produits"
+    // Création du formulaire qui récupèrera les données du client avec un tableau  nommé "products"
     let data = {
         contact : {
             firstName: document.getElementById('prenom').value,
@@ -127,7 +127,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         },
         products : []
     }
-        // Si le panier est vide on stop la commande
+        // Si le panier est vide on arrête la commande
         if (!panier) {
             alert("la commande ne peut pas être passée car le panier est vide");
             return

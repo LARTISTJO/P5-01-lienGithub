@@ -194,7 +194,7 @@
   {
     padding-left: 15px;
     padding-bottom: 10px;
-    font-size: 30px;
+    font-size: 26px;
   }
 
   figcaption a
@@ -488,12 +488,11 @@
  #remerciements span
  {
    color: #4169e1;
-   font-size: 25px;
+   font-size: 28px;
  }
 
  #remerciements p
  {
-   color: #e58a0b;
    font-size: 24px;
  }
 
@@ -502,17 +501,19 @@
     font-weight: 700;
     font-size: 22px;
     margin: 7px 0px;
+    color: #4169e1;
   }
 
-  #names, #address, #city
-  {
-    text-align: center;
-    margin-left: -5%;
-  }
 
   #firstName
   {
     margin-right: 7px;
+  }
+
+  #h3Confir
+  {
+    margin-left: 0px;
+    margin-bottom: 0px;
   }
 
 
