@@ -13,42 +13,42 @@ function appareilChoix (){
                
         
          product =
-                `<figure id="produit">
-                <img class="image" src="${appareil.imageUrl}">
-                <figcaption>
-                    <div class="descriptions">
-                        <h3>${appareil.name}</h3>
-                        <p>${appareil.description}</p>
+               `<figure id="produit">
+                    <img class="image" src="${appareil.imageUrl}">
+                    <figcaption>
+                        <div class="descriptions">
+                            <h3>${appareil.name}</h3>
+                            <p>${appareil.description}</p>
+                        </div>
+                        <div id="euro">
+                            <p class="prix">${appareil.price/1000}</p>
+                            <span>€</span>
+                        </div> 
+                    </figcaption>
+                </figure>
+                <div id="selection">
+                    <div id="choix">  
+                        <div id="nombre">         
+                            <label for="quantity">Quantité:</label>
+                            <input type="number" id="quantity" value="1" min="0">  
+                        </div> 
+                    </div> `;
+                    product +=  `
+                    <div id="type"> 
+                        <div id="valeur">
+                            <label for="options">Lentilles:</label>
+                            <select id ="options">
+                        </div>
+                    </div> `
+                    for (lentilles in appareil.lenses) {
+                        product += 
+                        `<option value= "${appareil.lenses[lentilles]}">${appareil.lenses[lentilles]}</option>`
+                    } 
+                    product +=  `</select>
+                    <div id="boutons">
+                        <button class="btn" onclick="ajoutPanier()">Ajoutez au panier</button>
                     </div>
-                    <div id="euro">
-                        <p class="prix">${appareil.price/1000}</p>
-                        <span>€</span>
-                    </div> 
-                </figcaption>
-            </figure>
-        <div id="selection">
-            <div id="choix">  
-                <div id="nombre">         
-                    <label for="quantity">Quantité:</label>
-                    <input type="number" id="quantity" value="1" min="0">  
-                </div> 
-            </div> `;
-            product +=  `
-            <div id="type"> 
-                <div id="valeur">
-                    <label for="options">Lentilles:</label>
-                    <select id ="options">
-                </div>
-            </div> `
-            for (lentilles in appareil.lenses) {
-                product += 
-                `<option value= "${appareil.lenses[lentilles]}">${appareil.lenses[lentilles]}</option>`
-            } 
-            product +=  `</select>
-            <div id="boutons">
-                <button class="btn" onclick="ajoutPanier()">Ajoutez au panier</button>
-            </div>
-        </div>`
+                </div>`
 
         const fragment = document.createRange()
         .createContextualFragment(product)

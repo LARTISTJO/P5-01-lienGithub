@@ -89,19 +89,19 @@ for (let i = 0; i < maj.length; i++) {
             panier[i].quantity = maj[i].value;
             localStorage.setItem('panier', JSON.stringify(panier));
               // Rafraîchissement de la page
-              location.reload();
+              window.location.reload();
         })
 }
 
 let forme = document.querySelector('#forme');
 let formulaire = 
  `<form id="form" name="myForm">
- <input class="panier" type="text" id="prenom" name="prenom" placeholder="Ex: 'Ruben'" required>
- <input class="panier" type="text" id="nom"  name="nom" placeholder="Ex: 'Manu'" required>
- <input class="panier" type="text" id="ville" name="ville" placeholder="Ex: 'Paris'" required>
- <input class="panier" type="text" id="adresse" name="adresse" placeholder="Ex: '3 rue du Mail'" required>
- <input class="panier" type="email" id="email" name="email" placeholder="Ex: 'ruben@email.fr'" required>
- <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
+    <input class="panier" type="text" id="prenom" name="prenom" placeholder="Ex: 'Ruben'" required>
+    <input class="panier" type="text" id="nom"  name="nom" placeholder="Ex: 'Manu'" required>
+    <input class="panier" type="text" id="ville" name="ville" placeholder="Ex: 'Paris'" required>
+    <input class="panier" type="text" id="adresse" name="adresse" placeholder="Ex: '3 rue du Mail'" required>
+    <input class="panier" type="email" id="email" name="email" placeholder="Ex: 'ruben@email.fr'" required>
+    <input class="panier" id="envoi" type="submit" value="Validation de votre commande">
 </form>`;
 
 forme.innerHTML = formulaire;

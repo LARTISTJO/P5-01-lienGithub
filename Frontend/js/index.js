@@ -16,7 +16,7 @@ function appareilPhoto () {
 		let description = data[i].description;
 
 		let produits =                                   // <- variable où l'on écrit le modèle HTML
-		`<figure>
+		   `<figure>
             	<img src="${imageUrl}" alt="Appareil photo vintage"</img>
             	<figcaption>
                 	<h3>${name}</h3>

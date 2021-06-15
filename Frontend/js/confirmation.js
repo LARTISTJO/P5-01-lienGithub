@@ -7,13 +7,17 @@ let coutTotal = 0;
 let confirmation = document.querySelector('#confirmation');
 let recap =
 ` <section id="remerciements">
-<h3 id="h3Confir">Bonjour,</h3>
-<div id="names"><span id="firstName"></span><span id="lastName"></span></div>
-<p> Merci pour votre achat sur notre site !</p>
-<p>Votre commande a été validée son montant est de : <span id="coutTotal"></span>€</p>
-<p>La référence de votre commande est : <div id="orderId".></div></p>
-<p>Vous recevrez un mail de confirmation à l'adresse : <div id="emaill"></div></p> 
-<p> À bientôt sur Orinoco !</p>
+    <h3 id="h3Confir">Bonjour,</h3>
+    <div id="names">
+        <span id="firstName"></span>
+        <span id="lastName"></span> 
+    </div>
+    <p> Merci pour votre achat sur notre site !</p>
+    <p>Votre commande a été validée son montant est de : <span id="coutTotal"></span>€</p>
+    <p>La référence de votre commande est : <div id="orderId".></div></p>
+    <p>Vous recevrez un mail de confirmation à l'adresse : <div id="emaill"></div></p> 
+    <p> À bientôt sur Orinoco !</p>
+  </section>    
 `;
 
 confirmation.innerHTML = recap;
@@ -29,6 +33,6 @@ document.getElementById('coutTotal').innerHTML = coutTotal/1000;
 document.getElementById('firstName').innerHTML = obtenirData.contact.firstName;
 document.getElementById('lastName').innerHTML = obtenirData.contact.lastName;
 document.getElementById('emaill').innerHTML = obtenirData.contact.email;
-// Affichage des données reçues en console
 
+// Affichage des données reçues en console
 localStorage.clear();
