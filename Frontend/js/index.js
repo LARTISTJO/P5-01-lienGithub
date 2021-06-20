@@ -1,4 +1,3 @@
-
 let structure = document.querySelector('.appareils');
 
 //........ Récupération produits Api

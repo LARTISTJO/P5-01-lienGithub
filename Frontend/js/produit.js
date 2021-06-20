@@ -49,7 +49,7 @@ function appareilChoix (){
                         <button class="btn" onclick="ajoutPanier()">Ajoutez au panier</button>
                     </div>
                 </div>`
-
+            
         const fragment = document.createRange()
         .createContextualFragment(product)
         document.getElementById('main').appendChild(fragment)       
@@ -62,9 +62,9 @@ appareilChoix(id);// Appel de la fonction, pour affichage des données
 let panier = [];
 
 if ("panier" in localStorage) {
-   // localStorage.clear();
     panier = JSON.parse(localStorage.getItem('panier'));
 }
+//console.log(panier);
 
 // Fonction qui récupère les éléments pour les transmettre à la page panier
 function ajoutPanier() {
@@ -79,8 +79,6 @@ function ajoutPanier() {
         prix : Number(document.querySelector('.prix').textContent)
     }
 
-    console.log(commande);
-      
     // Vérification que la commande possède au moins un article
     if (!commande.quantity > 0) {
         alert("vous devez choisir au moins un article pour passer la commande !")
@@ -95,7 +93,8 @@ function ajoutPanier() {
     }
     // Informations transmises au panier
     panier.push(commande);
-    
+    //console.log(panier);
+
     // Placement du panier dans le localStorage
     localStorage.setItem('panier', JSON.stringify(panier));
     console.log(panier); 

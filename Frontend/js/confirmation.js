@@ -22,17 +22,17 @@ let recap =
 
 confirmation.innerHTML = recap;
 
-// forEach ajouté pour que totalPrice reçoive la valeur de chaque produit acheté
+// forEach ajouté pour que coutTotal reçoive la valeur de chaque produit acheté
 obtenirData.products.forEach(elt => {
     coutTotal += elt.price;
 });
 
-// Affichage du numéro de commande et du coût total des articles sur la page confirmation.html
+// Affichage du numéro de commande, du coût total des articles, et de certaines informations du client
 document.getElementById('orderId').innerHTML = obtenirData.orderId;
 document.getElementById('coutTotal').innerHTML = coutTotal/1000;
 document.getElementById('firstName').innerHTML = obtenirData.contact.firstName;
 document.getElementById('lastName').innerHTML = obtenirData.contact.lastName;
 document.getElementById('emaill').innerHTML = obtenirData.contact.email;
 
-// Affichage des données reçues en console
+// Suppression des éléments du localStorage suite à l'affichage des informations client
 localStorage.clear();

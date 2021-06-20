@@ -163,7 +163,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
             return
         }
 
-    // fonction que l'on fait rentrer dans data.products pour s'adapter à la quantité demandée
+    // fonction qui pousse les informations dans data.products pour s'adapter à la quantité demandée
     panier.forEach(elt => {
         for (let i = 0; i < elt.quantity; i++) {
             data.products.push(elt.id);    
@@ -186,8 +186,9 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         // Ouverture de la page de confirmation
         location.replace("confirmation.html")
     })
+    
     // Au cas où il y aurait une erreur
     .catch((error) => {
         console.error(error);
-    });
+    }); 
 })
